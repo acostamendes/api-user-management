@@ -17,7 +17,7 @@ Rota de customer
 @customer_route.route('/', methods=['GET'])
 def list_customer():
     """Listar os clientes"""
-    return {'pagina': "list_customer"}
+    return render_template('list_customer.html')
 
 @customer_route.route('/', methods=['POST'])
 def inserir_customer():

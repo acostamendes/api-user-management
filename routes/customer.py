@@ -27,17 +27,17 @@ def inserir_customer():
 @customer_route.route('/new', methods=['GET'])
 def form_customer():
     """Formulário para cadastrar um cliente"""
-    return {'pagina': "form_customer"}
+    return render_template('form_customer.html')
 
 @customer_route.route('/<int:customer_id>', methods=['GET'])
 def detalhe_customer(customer_id):
     """Exibir detalhes do cliente"""
-    pass
+    return render_template('detalhe_customer.html')
 
 @customer_route.route('/<int:customer_id>/edit', methods=['GET'])
 def form_edit_customer(customer_id):
     """Formulário para editar um cliente"""
-    pass
+    return render_template('form_edit_customer.html')
 
 @customer_route.route('/<int:customer_id>/update', methods=['PUT'])
 def update_customer(customer_id):

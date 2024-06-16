@@ -44,8 +44,16 @@ def form_customer():
 
 @customer_route.route('/<int:customer_id>', methods=['GET'])
 def detalhe_customer(customer_id):
-    """Exibir detalhes do cliente"""
-    return render_template('detalhe_customer.html')
+    customer = CUSTOMER.query.get(customer_id)
+
+    # Verificar se o cliente existe
+    if not customer:
+        return "Cliente não encontrado", 404 # Retorna um erro 404 se o cliente não for encontrado
+
+    # Renderizar o template com os detalhes do cliente
+    return render_template('detalhe_customer.html', customer=customer)
+    #"""Exibir detalhes do cliente"""
+    #return render_template('detalhe_customer.html')
 
 @customer_route.route('/<int:customer_id>/edit', methods=['GET'])
 def form_edit_customer(customer_id):
